@@ -1,8 +1,8 @@
 // 1.
 enum GameGenre {
-    Action,
-    Adventure,
-    Sport,
+    Action = "ACTION",
+    Adventure = "ADVENTURE",
+    Sport = "SPORT",
 }
 
 // 2.
@@ -13,20 +13,26 @@ interface Game {
   }
 
 // 3.
-function createGame(name: Game, genre: Game, onlinePlay: boolean = false) {
+function createGame(
+  name: string,
+  genre: GameGenre,
+  onlinePlay: boolean = false
+): Game {
+  {
+    console.log("=============");
+    console.log("Game created:");
+    console.log("-------------");
+    console.log("Name:", name);
+    console.log("Genre:", genre);
+    console.log("Online play:", onlinePlay);
+  }
   return {
     name,
     genre,
     onlinePlay,
   };
-    console.log('=============');
-    console.log('Game created:');
-    console.log('-------------');
-    console.log('Name:', name);
-    console.log('Genre:', genre);
-    console.log('Online play:', onlinePlay);
-  }
+}
 
 // 4.
-createGame ({name: "Fun action game", genre: GameGenre.Action });
-createGame ({name: "Fun adventure game", genre: GameGenre.Adventure, onlinePlay: true });
+createGame ("Fun action game", GameGenre.Action);
+createGame ("Fun adventure game", GameGenre.Adventure, true);
